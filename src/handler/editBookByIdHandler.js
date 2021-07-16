@@ -1,14 +1,14 @@
-const notes = require('./notes');
+const books = require('./books');
 
-const editNoteByIdHandler = (request, h) => {
+const editBookByIdHandler = (request, h) => {
   const {id} = request.params;
   const {title, tags, body} = request.payload;
   const updatedAt = new Date().toISOString();
-  const index = notes.findIndex((note) => note.id === id);
+  const index = books.findIndex((book) => book.id === id);
 
   if (index !== -1) {
-    notes[index] = {
-      ...notes[index],
+    books[index] = {
+      ...books[index],
       title,
       tags,
       body,
@@ -29,4 +29,4 @@ const editNoteByIdHandler = (request, h) => {
   return response;
 };
 
-module.exports = editNoteByIdHandler;
+module.exports = editBookByIdHandler;

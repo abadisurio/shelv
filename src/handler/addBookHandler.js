@@ -1,14 +1,14 @@
 const {nanoid} = require('nanoid');
-const notes = require('./notes');
+const books = require('./books');
 
-const addNoteHandler = (request, h) => {
+const addBookHandler = (request, h) => {
   const {name, year, author, summary, publisher, pageCount,
     readPage, reading} = request.payload;
   const bookId = nanoid(16);
   const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
   const finished = pageCount === readPage;
-  const newNote = {
+  const newBook = {
     name, year, author, summary, publisher, pageCount,
     readPage, finished, reading, bookId, insertedAt, updatedAt,
   };
@@ -40,14 +40,14 @@ const addNoteHandler = (request, h) => {
     return response;
   }
 
-  notes.push(newNote);
-  const isSuccess = notes.filter((note) => note.bookId === bookId).length > 0;
+  books.push(newBook);
+  const isSuccess = books.filter((book) => book.bookId === bookId).length > 0;
   if (isSuccess) {
     const response = h.response({
       status: 'success',
       message: 'Buku berhasil ditambahkan',
       data: {
-        ...newNote,
+        ...newBook,
       },
     });
     response.code(201);
@@ -62,4 +62,4 @@ const addNoteHandler = (request, h) => {
   return response;
 };
 
-module.exports = addNoteHandler;
+module.exports = addBookHandler;

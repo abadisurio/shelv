@@ -1,13 +1,13 @@
-const addNoteHandler = require('./addNoteHandler');
-const getAllNotesHandler = require('./getAllNotesHandler');
-const getNoteByIdHandler = require('./getNoteByIdHandler');
-const editNoteByIdHandler = require('./editNoteByIdHandler');
-const deleteNoteByIdHandler = require('./deleteNoteByIdHandler');
+const addBookHandler = require('./addBookHandler');
+const getAllBooksHandler = require('./getAllBooksHandler');
+const getBookByIdHandler = require('./getBookByIdHandler');
+const editBookByIdHandler = require('./editBookByIdHandler');
+const deleteBookByIdHandler = require('./deleteBookByIdHandler');
 
 module.exports = {
-  addNoteHandler,
-  getAllNotesHandler,
-  getNoteByIdHandler,
-  editNoteByIdHandler,
-  deleteNoteByIdHandler,
+  addBookHandler,
+  getAllBooksHandler,
+  getBookByIdHandler,
+  editBookByIdHandler,
+  deleteBookByIdHandler,
 };

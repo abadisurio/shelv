@@ -1,13 +1,13 @@
-const notes = require('./notes');
+const books = require('./books');
 
-const getNoteByIdHandler = (request, h) => {
+const getBookByIdHandler = (request, h) => {
   const {id} = request.params;
-  const note = notes.filter((n) => n.id === id)[0];
-  if (note !== undefined) {
+  const book = books.filter((n) => n.id === id)[0];
+  if (book !== undefined) {
     return {
       status: 'success',
       data: {
-        note,
+        book,
       },
     };
   }
@@ -19,4 +19,4 @@ const getNoteByIdHandler = (request, h) => {
   return response;
 };
 
-module.exports = getNoteByIdHandler;
+module.exports = getBookByIdHandler;

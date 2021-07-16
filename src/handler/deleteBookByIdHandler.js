@@ -1,12 +1,12 @@
-const notes = require('./notes');
+const books = require('./books');
 
-const deleteNoteByIdHandler = (request, h) => {
+const deleteBookByIdHandler = (request, h) => {
   const {id} = request.params;
 
-  const index = notes.findIndex((note) => note.id === id);
+  const index = books.findIndex((book) => book.id === id);
 
   if (index !== -1) {
-    notes.splice(index, 1);
+    books.splice(index, 1);
     const response = h.response({
       status: 'success',
       message: 'Catatan berhasil dihapus',
@@ -23,4 +23,4 @@ const deleteNoteByIdHandler = (request, h) => {
   return response;
 };
 
-module.exports = deleteNoteByIdHandler;
+module.exports = deleteBookByIdHandler;
