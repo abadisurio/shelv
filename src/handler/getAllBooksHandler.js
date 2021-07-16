@@ -9,7 +9,7 @@ const getAllBooksHandler = () => {
         publisher: item.publisher,
       });
     });
-    console.log(data);
+    // console.log(data);
     return {
       status: 'success',
       data: {
