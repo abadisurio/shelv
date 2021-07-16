@@ -1,19 +1,24 @@
 const books = require('./books');
 
 const getBookByIdHandler = (request, h) => {
-  const {id} = request.params;
-  const book = books.filter((n) => n.id === id)[0];
+  const {bookId} = request.params;
+  const book = books.filter((n) => n.bookId === bookId)[0];
+  console.log('book: ', bookId);
+  console.log('book: ', book);
   if (book !== undefined) {
     return {
       status: 'success',
       data: {
-        book,
+        book: {
+          id: book.bookId,
+          ...book,
+        },
       },
     };
   }
   const response = h.response({
     status: 'fail',
-    message: 'Catatan tidak ditemukan',
+    message: 'Buku tidak ditemukan',
   });
   response.code(404);
   return response;
